@@ -51,13 +51,61 @@
             </table>
 
             <h2> Gr&aacute;fico </h2>
-            <button type="button" class="btn btn-primary float-right" onclick="send();">Inicio</button>
-            <!-- Despliegue del grafico -->
-            <div id="grafico"></div>
+            
 
-        </div> 
+	<div id="container">
+	<script src="js/highcharts.src.js" type="text/javascript"></script>
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/funciones.js" type="text/javascript"></script>
+	
+	</div>
+	
+	<div>
+	<script>var tabla = parsear('[{"sucursal_id":"1","nombre_sucursal":"San Francisco","monto_total":"18000"},{"sucursal_id":"2","nombre_sucursal":"Bonao","monto_total":"8000"}]');
+graficar(tabla,1,'Total');</script><div>
+<script>
+var i=0;
+var nombre=['Uno','Dos'];
+var enlaces=[1,2];
+for(i=0;i<nombre.length;++i){
+	var lol= <a href=nombre[i]>enlaces[i]</a>;
+}
+</script>
+</div>	
+<!--	 
     </section> 
-    
+<php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "grafico";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $queryPrincipal = "SELECT sucursales.id_sucursal, sucursales.nombre_sucursal, SUM(montos.monto) AS Total
+                       FROM montos
+                       INNER JOIN sucursales ON sucursales.id_sucursal = montos.id_sucursal
+                       GROUP BY sucursales.nombre_sucursal
+                       ORDER BY sucursales.id_sucursal ASC";
+
+    mysqli_set_charset($conn, "utf8");
+
+    if(!$result = mysqli_query($conn, $queryPrincipal)) die();
+
+    $rawdata = array();
+    while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+    {
+        $rawdata[] = $row;  
+    }
+    $conn->close();
+
+    echo json_encode($rawdata);
+?>
+-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>    <script src="js/main.js"></script>
 </body>

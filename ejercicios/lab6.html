@@ -17,37 +17,31 @@
 <a href=""><s>Blogs</s></a>
 </nav>
 
-
-   <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "grafico";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $queryPrincipal = "SELECT sucursales.id_sucursal, sucursales.nombre_sucursal, SUM(montos.monto) AS Total
-                       FROM montos
-                       INNER JOIN sucursales ON sucursales.id_sucursal = montos.id_sucursal
-                       GROUP BY sucursales.nombre_sucursal
-                       ORDER BY sucursales.id_sucursal ASC";
-
-    mysqli_set_charset($conn, "utf8");
-
-    if(!$result = mysqli_query($conn, $queryPrincipal)) die();
-
-    $rawdata = array();
-    while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-    {
-        $rawdata[] = $row;  
-    }
-    $conn->close();
-
-    echo json_encode($rawdata);
-?>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../css/theme.css">
+        <link rel="stylesheet" type="text/css" href="../css/sweetalert.css">
+        <script src="../js/sweetalert.min.js"></script>
+        <script src="../js/jquery-3.2.1.min.js"></script>
+    </head>
+    <body>
+        <div class="panel-group base">
+            <div style="background-color:#bababa; box-shadow: 0px 0px 50px;" class="panel panel-default">
+                <div class="loginform panel-body">
+                    <form action="../models/conn.php" method="post">
+                        <p>Usuario:</p>
+                        <input class="form-control" type="text" placeholder="Digite su usuario" name="user" required>
+                        <p>Contraseña:</p>
+                        <input class="form-control" type="password" placeholder="Digite su contraseña" name="pass" required><br>
+                        <input class="btn btn-success" type="submit" value="Iniciar Sesión">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--<footer>
+        <small>©Copyrights 2017 Eddy Soto</small>
+        </footer>-->
+    
 </body>
 </html>
