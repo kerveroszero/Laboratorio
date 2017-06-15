@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/Laboratorio/css/main.css"> 
+<link href="https://fonts.googleapis.com/css?family=Anton|Patua+One" rel="stylesheet">
+     <title>
+	   DE-8753
+	 </title>
+	 </head>
+<body onload="send();">
+    <!-- Highcharts -->
+  <header>  
+   <nav>
+<a href="/Laboratorio/menu.html">Menú</a> || 
+<a href="/Laboratorio/ejercicios/lab1.html">Biografía</a> ||
+<a href=""><s>Blogs</s></a>
+</nav>
+
+ </header>
+    <section class="main">
+        <div class="container">
+            <table class="table table-hover  ">
+              <thead class="thead-inverse">
+                <tr>
+                  <th>Sucursal</th>
+                  <th>Nombre</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                                    <tr onclick="send(1);">
+                      <th scope="row">1</th>
+                      <td>San Francisco</td>
+                      <td>1170000</td>
+                    </tr> 
+                                    <tr onclick="send(2);">
+                      <th scope="row">2</th>
+                      <td>Bonao</td>
+                      <td>1180000</td>
+                    </tr> 
+                                    <tr onclick="send(3);">
+                      <th scope="row">3</th>
+                      <td>Pedernales</td>
+                      <td>3892392</td>
+                    </tr> 
+                              </tbody>
+            </table>
+
+            <h2> Gr&aacute;fico </h2>
+            <button type="button" class="btn btn-primary float-right" onclick="send();">Inicio</button>
+            <!-- Despliegue del grafico -->
+            <div id="grafico"></div>
+
+        </div> 
+    </section> 
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>    <script src="js/main.js"></script>
+</body>
+</html>

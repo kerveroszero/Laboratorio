@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+    <head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/Laboratorio/css/main.css"> 
+<link href="https://fonts.googleapis.com/css?family=Anton|Patua+One" rel="stylesheet">
+	   <title>
+	   DE-8753
+	   </title>
+	</head>
+	
+<body>
+<nav>
+<a href="/Laboratorio/menu.html">Menú</a> || 
+<a href="/Laboratorio/ejercicios/lab1.html">Biografía</a> ||
+<a href=""><s>Blogs</s></a>
+</nav>
+
+
+   <?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "grafico";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $queryPrincipal = "SELECT sucursales.id_sucursal, sucursales.nombre_sucursal, SUM(montos.monto) AS Total
+                       FROM montos
+                       INNER JOIN sucursales ON sucursales.id_sucursal = montos.id_sucursal
+                       GROUP BY sucursales.nombre_sucursal
+                       ORDER BY sucursales.id_sucursal ASC";
+
+    mysqli_set_charset($conn, "utf8");
+
+    if(!$result = mysqli_query($conn, $queryPrincipal)) die();
+
+    $rawdata = array();
+    while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+    {
+        $rawdata[] = $row;  
+    }
+    $conn->close();
+
+    echo json_encode($rawdata);
+?>
+</body>
+</html>

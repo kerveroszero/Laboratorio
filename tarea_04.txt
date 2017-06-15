@@ -1,0 +1,7 @@
+1)Crear una estructura de datos que contenga usuario y contraseña.
+
+2)Crear una estructura de datos que contenga por cada usuario, las opciones del menu a las que el tiene .
+
+3)Desplegar el menu de acuerdo al usuario loggeado, es decir, que solo se muestren las opciones a las que el tiene accesso.
+
+https://www.tutorialspoint.com/json/

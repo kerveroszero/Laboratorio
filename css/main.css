@@ -1,0 +1,49 @@
+
+body{
+background-color: black;
+color: orange;
+font-family: 'Patua One', cursive;
+}
+
+img{
+width: 200px;
+}
+
+.quitar-float{
+float: none;
+}
+
+.anton{
+font-family: 'Anton', sans-serif;
+}
+
+.se-blanco{
+	background-color: white;
+}
+
+.padding-largo{
+	padding: 5px 10px;
+}
+
+.grande{
+font-size: 5em;
+}
+
+.mo-lista {
+	margin: 0px;
+	padding: 0px;
+}
+
+.inline-block{
+	float: none;
+	display: inline-block;
+	margin-right: -4px;
+}
+
+.mo-lista li{
+	list-style-type: none;
+}
+
+a,.azul{
+	color: blue;
+}

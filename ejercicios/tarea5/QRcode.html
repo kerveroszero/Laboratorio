@@ -1,0 +1,31 @@
+<!-- generador QR -->
+<html>
+<head>
+      <meta charset="utf-8">    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/Laboratorio/css/main.css"> 
+<link href="https://fonts.googleapis.com/css?family=Anton|Patua+One" rel="stylesheet">
+     <title>
+	   DE-8753
+	 </title>
+</head>
+<body>
+<nav>
+<a href="/Laboratorio/menu.html">Menú</a> || 
+<a href="/Laboratorio/ejercicios/lab1.html">Biografía</a> ||
+<a href=""><s>Blogs</s></a>
+</nav>
+
+<center>
+<h1>Generador de QR Code</h1>
+  <script type="text/javascript" src="qrcode.js"></script>
+  <div data-role="content">
+  <form>
+  <textarea name="msg" rows="10" cols="40">Escriba aqui, limite actual 62 caracteres</textarea><br>
+  <input type="button" value="Generar" onclick="update_qrcode()">
+  </form>
+  <div id="qr"></div>
+  </div>
+</center>
+</body>
+</html>
